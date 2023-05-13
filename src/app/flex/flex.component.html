@@ -1,0 +1,33 @@
+<div class="nav" [style.background-color]="selectedColor">
+    <h1>Header</h1>
+</div>
+<div class="flex-container">
+    <div class="body">
+        <div class="container">
+            <div class="flex-container">
+                <div class="col-3" style="padding-right: 50px;">
+                    <ul>
+                        <li *ngFor="let menuItem of menuItems" (click)="changeColor(menuItem.color)" [style.background-color]="menuItem.color">{{menuItem.name}}</li>
+                    </ul>
+                </div>
+                <div class="col-9">
+                    <h1 class="title">Title</h1>
+                    <form #form="ngForm">
+                        <input ngModel name="input1" required />
+                        <input ngModel name="input2" required/>
+                        <input ngModel name="input3" required/>
+                        <input ngModel name="input4" required/>
+                        <button type="button" (click)="reset(form)" [disabled]="form.pristine" class="left-button" [style.background-color]="selectedColor">RESET BUTTON</button>
+                        <button type="submit" (click)="submit(form)" [disabled]="!form.valid" [style.background-color]="selectedColor">SUBMIT BUTTON</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <h1>Side Bar</h1>
+    </div>
+</div>
+<div class="footer" [style.background-color]="selectedColor">
+    <h1>Footer</h1>
+</div>
